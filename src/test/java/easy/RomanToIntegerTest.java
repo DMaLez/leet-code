@@ -54,7 +54,7 @@ class RomanToIntegerTest {
                 Arguments.of("ARRAY", false),
                 Arguments.of("CCCLXV11", false),
                 Arguments.of("CM ", false),
-                Arguments.of("")
+                Arguments.of("", true)
         );
     }
 
