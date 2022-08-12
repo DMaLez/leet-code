@@ -8,11 +8,27 @@ package easy;
  */
 public class NumberOf1Bits {
 
+
+    /**
+     * Runtime: 1 ms, faster than 87.00% of Java online submissions for Number of 1 Bits.
+     * Memory Usage: 41.9 MB, less than 11.46% of Java online submissions for Number of 1 Bits.
+     */
+    public static int hammingWeightOwn(int n) {
+        int numberOf1Bits = 0;
+        for (int i = 0; i < 32; i++) {
+            if ((n & 1) == 1) {
+                numberOf1Bits++;
+            }
+            n = n >> 1;
+        }
+        return numberOf1Bits;
+    }
+
     /**
      * Runtime: 1 ms, faster than 87.00% of Java online submissions for Number of 1 Bits.
      * Memory Usage: 41 MB, less than 64.86% of Java online submissions for Number of 1 Bits.
      */
-    public int hammingWeight(int n) {
+    public static int hammingWeight(int n) {
         return Integer.bitCount(n);
     }
 }
