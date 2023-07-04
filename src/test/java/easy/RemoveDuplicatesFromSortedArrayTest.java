@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.stream.Stream;
 
+import commons.Printer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -27,7 +28,14 @@ class RemoveDuplicatesFromSortedArrayTest {
 				Arguments.of(new int[] {1,2}, new int[] {1,2}, 2)
 				);
 	}
-	
+
+	@Test
+	void testRemoveDuplicatedSet() {
+		int[] test = new int[] {0,0,1,1,1,2,2,3,3,4};
+		int k = RemoveDuplicatesFromSortedArray.removeDuplicatesSet(test);
+		Printer.printArray(test);
+	}
+
 	@ParameterizedTest
 	@MethodSource("provideArguments")
 	void removeDuplicatedTest(int[] nums, int[] expected, int expectedK) {

@@ -1,5 +1,10 @@
 package easy;
 
+import com.sun.source.tree.Tree;
+
+import java.util.Set;
+import java.util.TreeSet;
+
 /**
  * Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place
  * such that each unique element appears only once. The relative order of the elements should be kept the same.
@@ -19,10 +24,26 @@ package easy;
 public class RemoveDuplicatesFromSortedArray {
 
 	public static final int GAP = Integer.MIN_VALUE;
-	
+
 	/**
-	 * Runtime: 2 ms, faster than 43.02% of Java online submissions for Remove Duplicates from Sorted Array.
-	 * Memory Usage: 48.2 MB, less than 16.08% of Java online submissions for Remove Duplicates from Sorted Array.
+	 * Runtime 6 ms Beats 8.45%
+	 * Memory 44 MB Beats 66.54%
+	 */
+	public static int removeDuplicatesSet(int[] nums) {
+		TreeSet<Integer> nonDuplicateNumbers = new TreeSet<>();
+		for (int i = 0; i < nums.length; i++) {
+			nonDuplicateNumbers.add(nums[i]);
+		}
+		int k = 0;
+		for (int i : nonDuplicateNumbers) {
+			nums[k++] = i;
+		}
+		return k;
+	}
+
+	/**
+	 * Runtime 1 ms Beats 99.35%
+	 * Memory 45.2 MB Beats 5.16%
 	 */
 	public static int removeDuplicates(int[] nums) {
 		if (nums.length == 0) return 0;
